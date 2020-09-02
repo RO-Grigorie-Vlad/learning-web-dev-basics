@@ -1,2 +1,3 @@
 # learning-web-dev-basics
-Doing a Udemy course on web developement. HTML, CSS, JS and others.
+Doing an Udemy course on web developement. 
+HTML, CSS, JS, Bootstrap, Node-JS.
