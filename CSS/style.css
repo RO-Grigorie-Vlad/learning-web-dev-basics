@@ -1,0 +1,53 @@
+h1{
+    color:red;
+    /*border-color: aqua;
+    border-width: 5px;
+    border-style: solid;*/
+
+    border: 5px dashed aqua;
+}
+li{
+    color:blue;
+}
+h4{
+    color:green;
+}
+body{
+    /*background:lightblue;*/
+    background: url(corgi.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: black;
+}
+#special{
+    background-color: gold;
+}
+.less-special{
+    text-decoration: line-through;
+}
+ /* Start - * - everthing*/
+
+li a{  /* Every <a> that is inside an <li> */
+
+}
+
+  /* Adjentant selector*/
+h4 + ul{ /* all ul that come after h4 (NOT children) - siblings (on the same level) */
+}
+
+/* Attribute selector */
+input[type=text]{ /* all input that have the attribute type = text */
+}
+
+/* nth of a type*/
+li:nth-of-type(3){
+    background: powderblue
+}
+
+#super-fav{
+    color:orangered
+}
+
+
+
+
