@@ -1,0 +1,13 @@
+img{
+    float: left;
+    margin: 1%;
+    width: 46%;
+    border: 1px solid black;
+}
+h1{
+    margin: 1.66%;
+    font-family: 'Open Sans', sans-serif;
+    border-bottom: 2px solid gray;
+    padding-bottom: 5px;
+    width: 30%;
+}
