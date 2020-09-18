@@ -10,51 +10,54 @@ var hardDiffButton = document.getElementById("hardDiffButton");
 //difficulty 
     //6 for hard
     // 3 for easy
-var mod = 6;
+var mod = 6; //default is hard
 //set up colors
 var colors;
 //winning color
 var pickedColor;
 
 //set everything up
-setUp(mod);
+init();
+setUpGame(mod);
 
 //reset button
-resetButton.addEventListener("click", function(){
-    reset(mod);
-});
 
 //select dificulty - one button for each (it also generates new colors)
-easyDiffButton.addEventListener("click", function(){
-    mod = 3;
-    for(var i = 3; i<6; i++){
-        squares[i].style.backgroundColor = "#232323";
-        squares[i].style.pointerEvents = "none";
-    }
-    setUp(mod);
 
-    this.classList.add("selected");
-    hardDiffButton.classList.remove("selected");
 
-});
-hardDiffButton.addEventListener("click", function(){
-    mod = 6;
-    for(var i = 3; i<6; i++){
-        if(squares[i].style.pointerEvents === "none"){
-            squares[i].style.pointerEvents = "auto";
+function init(){
+    easyDiffButton.addEventListener("click", function(){
+        mod = 3;
+        for(var i = 3; i<6; i++){
+            squares[i].style.backgroundColor = "#232323";
+            squares[i].style.pointerEvents = "none";
         }
-    }
-    setUp(mod);
-
-    this.classList.add("selected");
-    easyDiffButton.classList.remove("selected");
-
-})
-
-//addEventListener to the squares
-//  check winning condition
-//  take coresponding action
-for(var i = 0; i < squares.length; i++){
+        setUpGame(mod);
+    
+        this.classList.add("selected");
+        hardDiffButton.classList.remove("selected");
+    
+    });
+    hardDiffButton.addEventListener("click", function(){
+        mod = 6;
+        for(var i = 3; i<6; i++){
+            if(squares[i].style.pointerEvents === "none"){
+                squares[i].style.pointerEvents = "auto";
+            }
+        }
+        setUpGame(mod);
+    
+        this.classList.add("selected");
+        easyDiffButton.classList.remove("selected");
+    
+    });
+    resetButton.addEventListener("click", function(){
+        reset(mod);
+    });
+    //addEventListener to the squares
+    //  check winning condition
+    //  take coresponding action
+    for(var i = 0; i < squares.length; i++){
     squares[i].addEventListener("click", function(){
         //get color of clicked square and compare it to winning color
         var clickedColor = this.style.backgroundColor;
@@ -70,10 +73,12 @@ for(var i = 0; i < squares.length; i++){
             this.style.backgroundColor = "#232323";
             messageDisplay.textContent = "Try Again!"
         }
-    });
+        });
+    }
 }
 
-function setUp(mod){
+
+function setUpGame(mod){
     //set up colors
     colors = generateRandomColors(mod);
     //winning color
@@ -89,7 +94,7 @@ function setUp(mod){
 }
 
 function reset(mod){
-    setUp(mod);
+    setUpGame(mod);
     h1.style.backgroundColor = "steelblue"
     resetButton.textContent = "New Colors";
 }
